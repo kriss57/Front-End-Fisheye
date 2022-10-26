@@ -6,9 +6,13 @@ import { PhotographersApi } from '../Api/api.js'
 
 
 class AppFactory {
+
     constructor() {
         this.Api = new PhotographersApi("data/photographers.json")
     }
+    /**
+     * Lanceur et Factory photographe
+     */
 
     async init() {
         // on recupere tous les photographes

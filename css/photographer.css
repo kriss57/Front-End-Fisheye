@@ -323,6 +323,7 @@ form textarea {
   top: 31%;
   cursor: pointer;
   width: 40px;
+  transition: 0.3s;
 }
 .rotate {
   transform: rotate(180deg);
@@ -332,7 +333,7 @@ form textarea {
 }
 .selector-bloc.isVisible {
   opacity: 1;
-  transition: 0.2;
+  transition: 0.3s;
 }
 
 .selector-list {

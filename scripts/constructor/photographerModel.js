@@ -1,5 +1,4 @@
-// -------------------------- //
-// ---> Constructor ou Model <--- //
+
 export class Photographer {
 
     baseImage = 'assets/photographers'
@@ -19,7 +18,7 @@ export class Photographer {
     /**
      * 
      * @param {*} property 
-     * @returns 
+     * @returns this[property] of Photographer
      */
     get(property) {
         console.log(property)
@@ -71,7 +70,10 @@ export class Photographer {
         return header
     }
 
-
+    /**
+     * 
+     * @returns cardInfo paragraphe
+     */
     getCardInfo() {
         let cardInfo = `<p>${this.price}€/jour</p>`
         return cardInfo

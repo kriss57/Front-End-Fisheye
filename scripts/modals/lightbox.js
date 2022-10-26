@@ -14,23 +14,22 @@ let mainContain = document.querySelector('#main')
 let all = []
 let position = 0
 
+/**
+ * Ouvre la lightbox
+ * @param {*} event 
+ */
 const openLightbox = (e) => {
-    // accéssibilité clavier
+    // accéssibilité clavier ouvert
     mainContain.setAttribute('aria-hidden', 'true')
     lightboxModal.setAttribute('aria-hidden', 'false')
     lightboxModalClose.focus()
-
-
+    // affiche lightbox
     lightboxModal.style.display = 'block'
     window.scrollTo(0, 0)
-
-
-
+    // défini media
     let media = e.target.parentNode.parentNode
-    console.log(media);
-
+    // défini position
     position = [...media.parentNode.children].indexOf(media)
-    console.log(position)
 
     setVideoCtrl()
 
@@ -38,11 +37,13 @@ const openLightbox = (e) => {
 
 }
 
+/**
+ * Ajoute le lecteur vidéo
+ */
 const setVideoCtrl = () => {
     all = document.querySelectorAll('.card-image')
     for (let m of all) {
         let videoElt = m.childNodes[1].children[0]
-        console.log(videoElt);
 
         if (videoElt.nodeName === 'VIDEO') {
             videoElt.setAttribute('controls', "")
@@ -52,11 +53,13 @@ const setVideoCtrl = () => {
     }
 
 }
+/**
+ * supprime le lecteur video
+ */
 const removeVideoCtrl = () => {
     all = document.querySelectorAll('.card-image')
     for (let m of all) {
         let videoElt = m.childNodes[1].children[0]
-        console.log(videoElt);
 
         if (videoElt.nodeName === 'VIDEO') {
             videoElt.removeAttribute('controls')
@@ -65,9 +68,11 @@ const removeVideoCtrl = () => {
 
     }
 }
-
+/**
+ * Affiche le media et affiche le titre
+ */
 const setMedia = () => {
-    // Défini la position du media
+    // affiche le media
     lightboxContain.innerHTML = all[position].childNodes[1].innerHTML
 
     // insertion du titre
@@ -77,18 +82,22 @@ const setMedia = () => {
 
 
 }
-
+/**
+ * Ferme la lightbox
+ */
 const closeLightbox = () => {
-    // accéssibilité clavier
+    // accéssibilité clavier fermer
     mainContain.setAttribute('aria-hidden', 'true')
     lightboxModal.setAttribute('aria-hidden', 'false')
-    // remove lecteur vidéo
+
     removeVideoCtrl()
     // close modal
     lightboxModal.style.display = 'none'
 
 }
-
+/**
+ * Affiche le media suivant
+ */
 const prevMedia = () => {
     position--
     if (position == -1) {
@@ -96,6 +105,9 @@ const prevMedia = () => {
     }
     setMedia()
 }
+/**
+ * Affiche le media précédent
+ */
 const nextMedia = () => {
     position++
     if (position == all.length) {
@@ -103,23 +115,24 @@ const nextMedia = () => {
     }
     setMedia()
 }
-
+/**
+ * Rafraichit la position des medias
+ */
 const refreshCardPosition = () => {
     all = document.querySelectorAll('.card-image')
     console.log('refresh' + all);
 
 }
-
+/**
+ * lanceur Lightbox
+ */
 const startLightboxListener = () => {
     all = document.querySelectorAll('.card-image')
-    console.log(all)
 
     for (let m of all) {
-        console.log(m.childNodes[1]);
         m.childNodes[1].addEventListener('click', openLightbox)
         //commande clavier
         m.childNodes[1].addEventListener('keypress', openLightbox)
-
     }
 
     // ---- EventListener CLose lightbox
@@ -150,7 +163,11 @@ const startLightboxListener = () => {
     // ---- Navigation fleche directionnel
     document.addEventListener('keydown', (e) => { arrowKeyNavigation(e) })
 }
-// Navigation fleche directionnel
+
+/**
+ * Navigation fleche directionnel
+ * @param {*} event 
+ */
 const arrowKeyNavigation = (e) => {
     e = e || window.e
 

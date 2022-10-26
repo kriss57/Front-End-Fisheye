@@ -2,12 +2,14 @@
 // ----Gestion d'ajout de likes
 let allLikes = []
 
-
+/**
+ * listener likes
+ * Incrémentations likes
+ */
 const addLikes = () => {
     console.log('dans addLikes');
     // ---Récup des éléments likes par médias
     let allLikes = document.querySelectorAll('.likes-value')
-    console.log(allLikes);
     // ---Récup de l'élément du total des likes
     let eltsTotalLikes = document.querySelector('.bloc-stat p')
     // ---Récup la valeur de totalLikes
@@ -34,6 +36,7 @@ const addLikes = () => {
 
                 // --- si disLiké
             } else {
+                checkbox[i].setAttribute('aria-checked', 'false')
                 // ---maj des likes par media
                 let addLike = likeByMedia - 1
                 eltLikeByMedia.innerText = addLike
@@ -47,7 +50,6 @@ const addLikes = () => {
         // Commande clavier
         checkbox[i].addEventListener('keyup', (e) => {
             if (e.key === 'Enter') {
-                console.log('enter');
             }
 
             //--récup des éléments like par média
@@ -57,6 +59,7 @@ const addLikes = () => {
 
             // si c liké
             if (checkbox[i].checked == true) {
+                checkbox[i].setAttribute('aria-checked', 'true')
                 // ---maj des likes par media
                 let addLike = likeByMedia + 1
                 eltLikeByMedia.innerText = addLike
@@ -66,6 +69,7 @@ const addLikes = () => {
 
                 // --- si disLiké
             } else {
+                checkbox[i].setAttribute('aria-checked', 'false')
                 // ---maj des likes par media
                 let addLike = likeByMedia - 1
                 eltLikeByMedia.innerText = addLike
@@ -83,5 +87,5 @@ const addLikes = () => {
 
 const refreshLikes = () => {
     allLikes = document.querySelectorAll('.likes-value')
-    console.log('refreshlikes: ' + allLikes);
+
 }

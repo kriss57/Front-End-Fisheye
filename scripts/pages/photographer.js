@@ -10,6 +10,9 @@ class AppFactory {
         this.Api = new PhotographersApi("data/photographers.json")
     }
 
+    /**
+     * Lanceur et Factory Media
+     */
     async init() {
         //-----------------------------------//
         // --- Bloc pour 1 photographe --- //
@@ -19,11 +22,10 @@ class AppFactory {
         const photographerId = parseInt(id)
         // récup des datas de 1 photographe
         const dataOnePhotographer = await this.Api.getOnePhotographer(photographerId)
-        console.log(dataOnePhotographer);
 
         // on fabrique le photographe
         const photographerModel = new Photographer(dataOnePhotographer)
-        console.log(photographerModel);
+
         // Récupération Photographe header et bloc stat template
         const headerTemplate = photographerModel.getPhotographerHeaderTemplate()
         const blocStatTemplate = photographerModel.getCardInfo()
@@ -31,18 +33,17 @@ class AppFactory {
         // Récuperation des éléments du dom
         const element = document.querySelector('.photographer-header')
         const eltBlocStat = document.querySelector('.bloc-stat')
-        console.log(eltBlocStat);
+
         //render header template
         element.insertAdjacentHTML('beforeend', headerTemplate)
         // render blocStatTemplate
         eltBlocStat.insertAdjacentHTML('beforeend', blocStatTemplate)
 
-        //Affiche le nom du photographe dans le formulaire
+        // render formulaire de contact
         displayNameInForm()
-
-        //Ouvrture Fermeture Modal
         displayModal()
         closeModal()
+
         // ----------------------------------------------- //
         // -------- Les medias du photographe ----------- //
 
@@ -53,8 +54,9 @@ class AppFactory {
         let mediasList = dataMedia.map(media => new Media(media))
         console.log(mediasList);
 
-        //-----Insertion des card Média--------/
-        // et Insertion du bloc totalLikes  !!!!!!!!!!!!!!!!!!
+        /**
+         * Insertion des card Média et du bloc totalLikes 
+         */
         let renderMedia = () => {
             let forIndex = ''
             let totalLikes = 0
@@ -71,7 +73,6 @@ class AppFactory {
 
             //------------------------------------//
             // render total des likes
-            // récup l élément html
             const blocStat = document.querySelector('.bloc-stat')
             // --template totalLikes
             let totalLikesTemplate = `

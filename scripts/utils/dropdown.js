@@ -18,6 +18,9 @@ const section = document.querySelector('#section')
 // ----- Ouverture et Fermeture
 isVisible = false
 
+/**
+ * Ouverture et fermeture du menu de tri
+ */
 const toggleDropdown = () => {
     //listBottom.classList.toggle("isVisible")  // method toggle()
     isVisible = !isVisible  // version ternere
@@ -37,7 +40,9 @@ arrow.addEventListener('keypress', (e) => {
 
 let allCards = []
 
-// // ------ System de selection
+/**
+ * System de selection
+ */
 let startDropdownListener = () => {
     // trie de base
     sortLikes()
@@ -97,7 +102,11 @@ let startDropdownListener = () => {
 }
 
 
-
+/**
+ * 
+ * @param {*} valueClicked 
+ * tri des medias
+ */
 const sortMedia = (valueClicked) => {
 
     if (valueClicked == 'Titre') {
@@ -124,7 +133,10 @@ const sortMedia = (valueClicked) => {
     }
 
 }
-
+/**
+ * 
+ * @param {*} array 
+ */
 const renderMediaSort = (newArraySort) => {
     // Clear card container
     section.innerHTML = ''
@@ -136,10 +148,9 @@ const renderMediaSort = (newArraySort) => {
     }
 }
 
-
-
-// ---Trier par Date
-
+/**
+ * Trier par Date
+ */
 const sortDate = () => {
     allCards = document.querySelectorAll('.card-image')
 
@@ -154,9 +165,9 @@ const sortDate = () => {
     renderMediaSort(newArraySortByDate)
 }
 
-
-// ---Trier par Popularité
-
+/**
+ * Trier par Popularité
+ */
 const sortLikes = () => {
     allCards = document.querySelectorAll('.card-image')
 
@@ -169,7 +180,9 @@ const sortLikes = () => {
 
 }
 
-// ---Trier par Titre
+/**
+ * Trier par Titre
+ */
 const sortTitle = () => {
     allCards = document.querySelectorAll('.card-image')
 
