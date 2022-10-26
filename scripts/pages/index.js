@@ -25,7 +25,6 @@ class AppFactory {
         console.log(photographers)
         // render template 
         let forIndex = ''
-        let title = ''
         photographers.forEach(photographer => {
             console.log(photographer);
             forIndex += photographer.getUserCardDOM()

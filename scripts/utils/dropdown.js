@@ -16,7 +16,7 @@ const section = document.querySelector('#section')
 
 
 // ----- Ouverture et Fermeture
-isVisible = false
+let isVisible = false
 
 /**
  * Ouverture et fermeture du menu de tri
@@ -30,7 +30,7 @@ const toggleDropdown = () => {
     isVisible ? arrowImg.classList.add("rotate") : arrowImg.classList.remove("rotate")
 }
 
-arrow.addEventListener('click', (e) => { toggleDropdown() })
+arrow.addEventListener('click', () => { toggleDropdown() })
 // --- Commande clavier
 arrow.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {

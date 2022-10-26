@@ -56,7 +56,7 @@ function closeModal() {
         openContact.focus()
     })
     // fermeture au clavier
-    btnClosed.addEventListener('keypress', (e) => {
+    btnClosed.addEventListener('keypress', () => {
 
         modal.style.display = "none";
 
