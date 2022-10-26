@@ -55,6 +55,12 @@ video {
   object-fit: cover;
   cursor: pointer;
 }
+#detach-button-host {
+  display: none;
+}
+.custom-button-wrapper {
+  overflow: hidden;
+}
 .img-info {
   display: flex;
   align-items: center;
@@ -316,6 +322,7 @@ form textarea {
   background-color: #911c1c;
   border-radius: 5px;
   position: relative;
+  z-index: 10;
 }
 #select-btn span {
   position: absolute;
@@ -355,4 +362,7 @@ ul li {
 li:hover {
   background-color: #d3573c;
   cursor: pointer;
+}
+#title {
+  z-index: 100;
 }

@@ -28,7 +28,15 @@ const toggleDropdown = () => {
     isVisible ? title.setAttribute('aria-hidden', 'false') : title.setAttribute('aria-hidden', 'true')
     isVisible ? listBottom.classList.add("isVisible") : listBottom.classList.remove("isVisible")
     isVisible ? arrowImg.classList.add("rotate") : arrowImg.classList.remove("rotate")
+    // ajout timer 
+    if (isVisible) {
+        window.setTimeout(() => {
+            listBottom.classList.remove("isVisible")
+            arrowImg.classList.remove("rotate")
+        }, 10000)
+    }
 }
+
 
 arrow.addEventListener('click', () => { toggleDropdown() })
 // --- Commande clavier
