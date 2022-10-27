@@ -49,11 +49,23 @@
 }
 .card-image a img {
   cursor: pointer;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+.card-image a img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
 }
 video {
   border-radius: 5px;
   object-fit: cover;
   cursor: pointer;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+video:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
 }
 #detach-button-host {
   display: none;
@@ -361,7 +373,11 @@ ul li {
 }
 li:hover {
   background-color: #d3573c;
+  color: #000000;
   cursor: pointer;
+}
+li {
+  font-weight: 600;
 }
 #title {
   z-index: 100;

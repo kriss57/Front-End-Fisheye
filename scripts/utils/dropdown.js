@@ -31,6 +31,8 @@ const toggleDropdown = () => {
     // ajout timer 
     if (isVisible) {
         window.setTimeout(() => {
+            date.setAttribute('aria-hidden', 'true')
+            title.setAttribute('aria-hidden', 'true')
             listBottom.classList.remove("isVisible")
             arrowImg.classList.remove("rotate")
         }, 10000)

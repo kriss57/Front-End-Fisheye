@@ -87,9 +87,9 @@ const setMedia = () => {
  */
 const closeLightbox = () => {
     // accéssibilité clavier fermer
-    mainContain.setAttribute('aria-hidden', 'true')
-    lightboxModal.setAttribute('aria-hidden', 'false')
-
+    mainContain.setAttribute('aria-hidden', 'false')
+    lightboxModal.setAttribute('aria-hidden', 'true')
+    lightboxModal.focus()
     removeVideoCtrl()
     // close modal
     lightboxModal.style.display = 'none'
